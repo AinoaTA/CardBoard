@@ -18,12 +18,17 @@ namespace Cardboard.Zone
             InteractableZone.OnUpdate -= DoReset;
         }
 
+        private void Start()
+        {
+            _allZones[Random.Range(0, _allZones.Length)].Interaction();
+        }
+
         private void DoReset(InteractableZone z)
         {
             _allZones.ToList().ForEach(n =>
             {
                 if (z.GetInstanceID() != n.GetInstanceID()) n.ResetState();
             });
-        }
+        } 
     }
 }

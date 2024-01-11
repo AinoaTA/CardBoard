@@ -6,7 +6,7 @@ namespace Cardboard
     {
         private void Update()
         {
-            transform.LookAt(Controller.Instance.Player.transform);
+            transform.rotation = Quaternion.LookRotation(transform.position-(Controller.Instance.Player.transform.position + new Vector3(0,1,0)));
         }
     }
 }
