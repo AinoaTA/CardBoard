@@ -6,7 +6,7 @@ namespace Cardboard.Zone
 {
     public class ZoneController : MonoBehaviour
     {
-        [SerializeField] private InteractableZone[] _allZones;
+        /*[SerializeField]*/ private InteractableZone[] _allZones;
 
         private void OnEnable()
         {
@@ -20,9 +20,16 @@ namespace Cardboard.Zone
 
         private void Start()
         {
-            _allZones[Random.Range(0, _allZones.Length)].Interaction();
+            //to avoid any missed zone. Not use frequently.
+            _allZones = GameObject.FindObjectsOfType<InteractableZone>();
+            
+            _allZones[Random.Range(0, _allZones.Length)].Interaction(); 
         }
 
+        /// <summary>
+        /// Reset all zones except current plauce. 
+        /// </summary>
+        /// <param name="z"></param>
         private void DoReset(InteractableZone z)
         {
             _allZones.ToList().ForEach(n =>
