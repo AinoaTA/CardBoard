@@ -6,6 +6,7 @@ namespace Cardboard.Interactions
 {
     public class EventInteractable : Interactable
     {
+        //this event will activated when interaction exists.
         [SerializeField] private UnityEvent _interactEvent;
         [SerializeField] private float _maxCoolDown;
 

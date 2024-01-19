@@ -25,8 +25,10 @@ namespace Cardboard.Inputs
             InputManager.OnVerticalMovement -= VerticalMovement;
         }
 
+        ///
         private void Awake()
-        {
+        {   
+            //blocks and center the movement and visible of mouse.
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
@@ -39,9 +41,10 @@ namespace Cardboard.Inputs
         { 
             _mouseY = inputMouse * _sensibilityY;
         }
+
         private void Update()
         { 
-            transform.Rotate(Vector3.up, _mouseX * Time.deltaTime);
+            transform.Rotate(Vector3.up, _mouseX * Time.deltaTime); //rotate player transform
 
             _xRotation -= _mouseY;
             _xRotation = Mathf.Clamp(_xRotation, -_xClamp, _xClamp);
@@ -49,7 +52,7 @@ namespace Cardboard.Inputs
             Vector3 targetRot = transform.eulerAngles;
             targetRot.x = _xRotation;
 
-            _cameraTransform.eulerAngles = targetRot;
+            _cameraTransform.eulerAngles = targetRot; //rotate camera transform
         }
     }
 }

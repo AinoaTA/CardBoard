@@ -4,7 +4,7 @@ using Cardboard.Inputs;
 namespace Cardboard.Player
 {
     public class PlayerMovement : MonoBehaviour, IBlocker
-    { 
+    {
         public bool Block { get => _block; set => _block = value; }
         private bool _block;
 
@@ -16,8 +16,7 @@ namespace Cardboard.Player
 
         private void OnEnable()
         {
-            InputManager.OnMoveDelegate += Movement; 
-            //IBlocker.OnBlocker?.Invoke(NoticeBlocker());
+            InputManager.OnMoveDelegate += Movement;
         }
 
         private void OnDisable()
@@ -39,15 +38,13 @@ namespace Cardboard.Player
 
         private void Update()
         { 
-            if (Mathf.Approximately(_dir.magnitude, 0)) return;
-
             float realSpeed = _speed * Time.deltaTime;
 
             Vector3 dir = _cam.transform.forward * _dir.y + _cam.transform.right * _dir.x;
             dir.y = 0;
             dir.Normalize();
 
-            _character.transform.position+= dir * realSpeed; 
+            _character.transform.position += dir * realSpeed;
 
             //I was using .Move(dir) from character controller but there were some problemas about teleporting into 
             //interactable zones meanwhile player was walking. Some conflict between transform.position & .Move().

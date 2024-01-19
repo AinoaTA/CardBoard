@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player(with inputs) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 1157614928342788598, guid: c0078cbb5b3d1854894dcaceeea78ba4, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 4175852987879471569, guid: c0078cbb5b3d1854894dcaceeea78ba4, type: 3}
       propertyPath: m_Layer
       value: 2
@@ -57,7 +61,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9157227536897101300, guid: c0078cbb5b3d1854894dcaceeea78ba4, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157227536897101300, guid: c0078cbb5b3d1854894dcaceeea78ba4, type: 3}
       propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157227536897101300, guid: c0078cbb5b3d1854894dcaceeea78ba4, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -89,7 +101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bcf969cb86d60274b82163c009ce5a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 3
+  _speed: 6
 --- !u!114 &4387865039795861078
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +114,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8b5c608b5d624d418017f97237a0cd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sensibilityX: 180
-  _sensibilityY: 1
+  _sensibilityX: 60
+  _sensibilityY: 0.3
   _cameraTransform: {fileID: 8877521189517118977}
   _xClamp: 85
 --- !u!4 &8877521189517118977 stripped

@@ -6,8 +6,9 @@ namespace Cardboard.Zone
 {
     public class ZoneController : MonoBehaviour
     {
-        /*[SerializeField]*/ private InteractableZone[] _allZones;
-
+        /*[SerializeField]*/
+        private InteractableZone[] _allZones;
+        [SerializeField] private bool _setRandomZone = true;
         private void OnEnable()
         {
             InteractableZone.OnUpdate += DoReset;
@@ -22,8 +23,9 @@ namespace Cardboard.Zone
         {
             //to avoid any missed zone. Not use frequently.
             _allZones = GameObject.FindObjectsOfType<InteractableZone>();
-            
-            _allZones[Random.Range(0, _allZones.Length)].Interaction(); 
+
+            if (_setRandomZone)
+                _allZones[Random.Range(0, _allZones.Length)].Interaction();
         }
 
         /// <summary>
@@ -36,6 +38,6 @@ namespace Cardboard.Zone
             {
                 if (z.GetInstanceID() != n.GetInstanceID()) n.ResetState();
             });
-        } 
+        }
     }
 }
